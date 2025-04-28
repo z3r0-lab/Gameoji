@@ -12,6 +12,8 @@ struct CharactersCardView: View {
     var imageName: String
     var desription: String
     
+    @State private var isChatPresented = false
+    
     var body: some View {
         HStack(alignment: .top,spacing: 10) {
             AsyncImage(url: URL(string: imageName)) { image in
@@ -36,7 +38,7 @@ struct CharactersCardView: View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        print("talk to smth")
+                        isChatPresented = true
                     }) {
                         Text("TALK TO")
                             .padding(.horizontal, 16)
@@ -52,5 +54,8 @@ struct CharactersCardView: View {
         .padding()
         .background(.white.opacity(0.05))
         .clipShape(.rect(cornerRadius: 12))
+        .navigationDestination(isPresented: $isChatPresented) {
+            LLMChatView(characterPrompt: CharacterPrompt.prompt(for: name), characterName: name, characterImage: imageName)
+        }
     }
 }
