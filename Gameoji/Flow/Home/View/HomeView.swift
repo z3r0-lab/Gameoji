@@ -49,11 +49,7 @@ struct HomeView: View {
                 }
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
-#Preview {
-    NavigationStack {
-        HomeView()
-    }
-}

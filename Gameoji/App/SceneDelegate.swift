@@ -36,8 +36,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         
         let window = UIWindow(windowScene: windowScene)
+        
+        let hasSeenOnboarding = UserDefaults.standard.bool(forKey: String(describing: OnboardingView().self))
+        
         let rootView = NavigationStack {
-            HomeView()
+            if hasSeenOnboarding {
+                HomeView()
+            } else {
+                OnboardingView()
+            }
         }
         
         window.rootViewController = UIHostingController(rootView: rootView)
