@@ -30,9 +30,9 @@ class LLMService {
         ]
 
         let body: [String: Any] = [
-            "model": "llama3-70b-8192", // Самая мощная бесплатная модель от Groq
+            "model": "llama3-70b-8192",
             "messages": messages,
-            "temperature": 0.7 // Можно настраивать стиль ответов
+            "temperature": 0.7 
         ]
 
         do {
