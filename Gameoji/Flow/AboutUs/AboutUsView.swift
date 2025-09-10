@@ -10,10 +10,10 @@ import SwiftUI
 struct AboutUsView: View {
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.customBlue, .customDark],
+            LinearGradient(colors: [.customDarkBlue, .customPurple],
                            startPoint: .top,
                            endPoint: .bottom)
-            .ignoresSafeArea()
+                .ignoresSafeArea()
             VStack(alignment: .center, spacing: 20) {
                 Spacer().frame(height: 10)
                 Image("logo")
@@ -30,14 +30,13 @@ struct AboutUsView: View {
             
                 Spacer()
                 Text("Made with ❤️ for game lovers")
+                    .foregroundStyle(.white)
                     .bold()
             }
             .padding()
             
             
         }
-        .navigationTitle("About").foregroundStyle(.white)
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

@@ -126,10 +126,10 @@ struct EmojiQuizView: View {
         }
         .onAppear {
             viewModel.fetchCharacters(forGame: title)
-            startTimer()
         }
         .onChange(of: viewModel.characters) { 
             shuffleAnswers()
+            startTimer()
         }
     }
     
